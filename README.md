@@ -1,1 +1,165 @@
-# calibration_dataset
+# Calibration Dataset
+This dataset is based on NATS-Bench and is used for calibration. There are 6 files in this folder, which are:
+- `cifar10_sss.csv`: the calibration dataset for CIFAR-10 with 32,768 architectures in SSS search space.
+- `cifar10_tss.csv`: the calibration dataset for CIFAR-10 with 15,624 architectures in TSS search space.
+- `cifar100_sss.csv`: the calibration dataset for CIFAR-100 with 32,768 architectures in SSS search space.
+- `cifar100_tss.csv`: the calibration dataset for CIFAR-100 with 15,624 architectures in TSS search space.
+- `ImageNet_sss.csv`: the calibration dataset for ImageNet16-120 with 32,768 architectures in SSS search space.
+- `ImageNet_tss.csv`: the calibration dataset for ImageNet16-120 with 15,624 architectures in TSS search space.
+
+The meaning of each column is as follows, note that the robustness data is from Neural Architecture Design and Robustness: A Dataset:
+- `config`: the architecture index.
+- `acc`: the accuracy of the architecture at epoch 200.
+- `correct_confidence`: the mean confidence of the correct prediction.
+- `incorrect_confidence`: the mean confidence of the incorrect prediction.
+- `arch`: the architecture string.
+- `pre_ECE_5`: the pre-temperature-scaling ECE with bin size = 5.
+- `post_ECE_5`: the post-temperature-scaling ECE with bin size = 5.
+- `pre_ECE_10`: the pre-temperature-scaling ECE with bin size = 10.
+- `post_ECE_10`: the post-temperature-scaling ECE with bin size = 10.
+- `pre_ECE_15`: the pre-temperature-scaling ECE with bin size = 15.
+- `post_ECE_15`: the post-temperature-scaling ECE with bin size = 15.
+- `pre_ECE_20`: the pre-temperature-scaling ECE with bin size = 20.
+- `post_ECE_20`: the post-temperature-scaling ECE with bin size = 20.
+- `pre_ECE_25`: the pre-temperature-scaling ECE with bin size = 25.
+- `post_ECE_25`: the post-temperature-scaling ECE with bin size = 25.
+- `pre_ECE_50`: the pre-temperature-scaling ECE with bin size = 50.
+- `post_ECE_50`: the post-temperature-scaling ECE with bin size = 50.
+- `pre_ECE_100`: the pre-temperature-scaling ECE with bin size = 100.
+- `post_ECE_100`: the post-temperature-scaling ECE with bin size = 100.
+- `pre_ECE_200`: the pre-temperature-scaling ECE with bin size = 200.
+- `post_ECE_200`: the post-temperature-scaling ECE with bin size = 200.
+- `pre_ECE_500`: the pre-temperature-scaling ECE with bin size = 500.
+- `post_ECE_500`: the post-temperature-scaling ECE with bin size = 500.
+- `pre_ECE_em_5`: the pre-temperature-scaling ECE with equal mass bin size = 5.
+- `post_ECE_em_5`: the post-temperature-scaling ECE with equal mass bin size = 5.
+- `pre_ECE_em_10`: the pre-temperature-scaling ECE with equal mass bin size = 10.
+- `post_ECE_em_10`: the post-temperature-scaling ECE with equal mass bin size = 10.
+- `pre_ECE_em_15`: the pre-temperature-scaling ECE with equal mass bin size = 15.
+- `post_ECE_em_15`: the post-temperature-scaling ECE with equal mass bin size = 15.
+- `pre_ECE_em_20`: the pre-temperature-scaling ECE with equal mass bin size = 20.
+- `post_ECE_em_20`: the post-temperature-scaling ECE with equal mass bin size = 20.
+- `pre_ECE_em_25`: the pre-temperature-scaling ECE with equal mass bin size = 25.
+- `post_ECE_em_25`: the post-temperature-scaling ECE with equal mass bin size = 25.
+- `pre_ECE_em_50`: the pre-temperature-scaling ECE with equal mass bin size = 50.
+- `post_ECE_em_50`: the post-temperature-scaling ECE with equal mass bin size = 50.
+- `pre_ECE_em_100`: the pre-temperature-scaling ECE with equal mass bin size = 100.
+- `post_ECE_em_100`: the post-temperature-scaling ECE with equal mass bin size = 100.
+- `pre_ECE_em_200`: the pre-temperature-scaling ECE with equal mass bin size = 200.
+- `post_ECE_em_200`: the post-temperature-scaling ECE with equal mass bin size = 200.
+- `pre_ECE_em_500`: the pre-temperature-scaling ECE with equal mass bin size = 500.
+- `post_ECE_em_500`: the post-temperature-scaling ECE with equal mass bin size = 500.
+- `pre_cwCE_5`: the pre-temperature-scaling cwCE with bin size = 5.
+- `post_cwCE_5`: the post-temperature-scaling cwCE with bin size = 5.
+- `pre_cwCE_10`: the pre-temperature-scaling cwCE with bin size = 10.
+- `post_cwCE_10`: the post-temperature-scaling cwCE with bin size = 10.
+- `pre_cwCE_15`: the pre-temperature-scaling cwCE with bin size = 15.
+- `post_cwCE_15`: the post-temperature-scaling cwCE with bin size = 15.
+- `pre_cwCE_20`: the pre-temperature-scaling cwCE with bin size = 20.
+- `post_cwCE_20`: the post-temperature-scaling cwCE with bin size = 20.
+- `pre_cwCE_25`: the pre-temperature-scaling cwCE with bin size = 25.
+- `post_cwCE_25`: the post-temperature-scaling cwCE with bin size = 25.
+- `pre_cwCE_50`: the pre-temperature-scaling cwCE with bin size = 50.
+- `post_cwCE_50`: the post-temperature-scaling cwCE with bin size = 50.
+- `pre_cwCE_100`: the pre-temperature-scaling cwCE with bin size = 100.
+- `post_cwCE_100`: the post-temperature-scaling cwCE with bin size = 100.
+- `pre_cwCE_200`: the pre-temperature-scaling cwCE with bin size = 200.
+- `post_cwCE_200`: the post-temperature-scaling cwCE with bin size = 200.
+- `pre_cwCE_500`: the pre-temperature-scaling cwCE with bin size = 500.
+- `post_cwCE_500`: the post-temperature-scaling cwCE with bin size = 500.
+- `pre_cwCE_em_5`: the pre-temperature-scaling cwCE with equal mass bin size = 5.
+- `post_cwCE_em_5`: the post-temperature-scaling cwCE with equal mass bin size = 5.
+- `pre_cwCE_em_10`: the pre-temperature-scaling cwCE with equal mass bin size = 10.
+- `post_cwCE_em_10`: the post-temperature-scaling cwCE with equal mass bin size = 10.
+- `pre_cwCE_em_15`: the pre-temperature-scaling cwCE with equal mass bin size = 15.
+- `post_cwCE_em_15`: the post-temperature-scaling cwCE with equal mass bin size = 15.
+- `pre_cwCE_em_20`: the pre-temperature-scaling cwCE with equal mass bin size = 20.
+- `post_cwCE_em_20`: the post-temperature-scaling cwCE with equal mass bin size = 20.
+- `pre_cwCE_em_25`: the pre-temperature-scaling cwCE with equal mass bin size = 25.
+- `post_cwCE_em_25`: the post-temperature-scaling cwCE with equal mass bin size = 25.
+- `pre_cwCE_em_50`: the pre-temperature-scaling cwCE with equal mass bin size = 50.
+- `post_cwCE_em_50`: the post-temperature-scaling cwCE with equal mass bin size = 50.
+- `pre_cwCE_em_100`: the pre-temperature-scaling cwCE with equal mass bin size = 100.
+- `post_cwCE_em_100`: the post-temperature-scaling cwCE with equal mass bin size = 100.
+- `pre_cwCE_em_200`: the pre-temperature-scaling cwCE with equal mass bin size = 200.
+- `post_cwCE_em_200`: the post-temperature-scaling cwCE with equal mass bin size = 200.
+- `pre_cwCE_em_500`: the pre-temperature-scaling cwCE with equal mass bin size = 500.
+- `post_cwCE_em_500`: the post-temperature-scaling cwCE with equal mass bin size = 500.
+- `pre_MCE_5`: the pre-temperature-scaling MCE with bin size = 5.
+- `post_MCE_5`: the post-temperature-scaling MCE with bin size = 5.
+- `pre_MCE_10`: the pre-temperature-scaling MCE with bin size = 10.
+- `post_MCE_10`: the post-temperature-scaling MCE with bin size = 10.
+- `pre_MCE_15`: the pre-temperature-scaling MCE with bin size = 15.
+- `post_MCE_15`: the post-temperature-scaling MCE with bin size = 15.
+- `pre_MCE_20`: the pre-temperature-scaling MCE with bin size = 20.
+- `post_MCE_20`: the post-temperature-scaling MCE with bin size = 20.
+- `pre_MCE_25`: the pre-temperature-scaling MCE with bin size = 25.
+- `post_MCE_25`: the post-temperature-scaling MCE with bin size = 25.
+- `pre_MCE_50`: the pre-temperature-scaling MCE with bin size = 50.
+- `post_MCE_50`: the post-temperature-scaling MCE with bin size = 50.
+- `pre_MCE_100`: the pre-temperature-scaling MCE with bin size = 100.
+- `post_MCE_100`: the post-temperature-scaling MCE with bin size = 100.
+- `pre_MCE_200`: the pre-temperature-scaling MCE with bin size = 200.
+- `post_MCE_200`: the post-temperature-scaling MCE with bin size = 200.
+- `pre_MCE_500`: the pre-temperature-scaling MCE with bin size = 500.
+- `post_MCE_500`: the post-temperature-scaling MCE with bin size = 500.
+- `pre_KSCE`: the pre-temperature-scaling KSCE.
+- `post_KSCE`: the post-temperature-scaling KSCE.
+- `pre_KDECE`: the pre-temperature-scaling KDECE.
+- `post_KDECE`: the post-temperature-scaling KDECE.
+- `pre_MMCE`: the pre-temperature-scaling MMCE.
+- `post_MMCE`: the post-temperature-scaling MMCE.
+- `pre_NLL`: the pre-temperature-scaling NLL.
+- `post_NLL`: the post-temperature-scaling NLL.
+- `pre_Brier`: the pre-temperature-scaling Brier.
+- `post_Brier`: the post-temperature-scaling Brier.
+- `pre_auc_cifar10c`: the pre-temperature-scaling AUC on CIFAR-10-C (corrupted with guassian noise).
+- `pre_auc_svhn`: the pre-temperature-scaling AUC on SVHN.
+- `fgsm_Linf_acc0_1`: fgsm attack with Linf norm and epsilon = 0.1.
+- `fgsm_Linf_acc0_5`: fgsm attack with Linf norm and epsilon = 0.5.
+- `fgsm_Linf_acc1_0`: fgsm attack with Linf norm and epsilon = 1.0.
+- `fgsm_Linf_acc2_0`: fgsm attack with Linf norm and epsilon = 2.0.
+- `fgsm_Linf_acc3_0`: fgsm attack with Linf norm and epsilon = 3.0.
+- `fgsm_Linf_acc4_0`: fgsm attack with Linf norm and epsilon = 4.0.
+- `fgsm_Linf_acc5_0`: fgsm attack with Linf norm and epsilon = 5.0.
+- `fgsm_Linf_acc6_0`: fgsm attack with Linf norm and epsilon = 6.0.
+- `fgsm_Linf_acc7_0`: fgsm attack with Linf norm and epsilon = 7.0.
+- `fgsm_Linf_acc8_0`: fgsm attack with Linf norm and epsilon = 8.0.
+- `fgsm_Linf_acc255_0`: fgsm attack with Linf norm and epsilon = 255.0.
+- `pgd_Linf_acc0_1`: pgd attack with Linf norm and epsilon = 0.1.
+- `pgd_Linf_acc0_5`: pgd attack with Linf norm and epsilon = 0.5.
+- `pgd_Linf_acc1_0`: pgd attack with Linf norm and epsilon = 1.0.
+- `pgd_Linf_acc2_0`: pgd attack with Linf norm and epsilon = 2.0.
+- `pgd_Linf_acc3_0`: pgd attack with Linf norm and epsilon = 3.0.
+- `pgd_Linf_acc4_0`: pgd attack with Linf norm and epsilon = 4.0.
+- `pgd_Linf_acc8_0`: pgd attack with Linf norm and epsilon = 8.0.
+- `aa_apgd_ce_Linf_acc0_1`: aa_apgd attack with Linf norm and epsilon = 0.1.
+- `aa_apgd_ce_Linf_acc0_5`: aa_apgd attack with Linf norm and epsilon = 0.5.
+- `aa_apgd_ce_Linf_acc1_0`: aa_apgd attack with Linf norm and epsilon = 1.0.
+- `aa_apgd_ce_Linf_acc2_0`: aa_apgd attack with Linf norm and epsilon = 2.0.    
+- `aa_apgd_ce_Linf_acc3_0`: aa_apgd attack with Linf norm and epsilon = 3.0.
+- `aa_apgd_ce_Linf_acc4_0`: aa_apgd attack with Linf norm and epsilon = 4.0.
+- `aa_apgd_ce_Linf_acc8_0`: aa_apgd attack with Linf norm and epsilon = 8.0.
+- `aa_square_Linf_acc0_1`: aa_square attack with Linf norm and epsilon = 0.1.
+- `aa_square_Linf_acc0_5`: aa_square attack with Linf norm and epsilon = 0.5.
+- `aa_square_Linf_acc1_0`: aa_square attack with Linf norm and epsilon = 1.0.
+- `aa_square_Linf_acc2_0`: aa_square attack with Linf norm and epsilon = 2.0.
+- `aa_square_Linf_acc3_0`: aa_square attack with Linf norm and epsilon = 3.0.
+- `aa_square_Linf_acc4_0`: aa_square attack with Linf norm and epsilon = 4.0.
+- `aa_square_Linf_acc8_0`: aa_square attack with Linf norm and epsilon = 8.0.
+- `brightness`: accuracy on dataset corrupted with brightness.
+- `contrast`: accuracy on dataset corrupted with contrast.
+- `defocus_blur`: accuracy on dataset corrupted with defocus_blur.
+- `elastic_transform`: accuracy on dataset corrupted with elastic_transform.
+- `fog`: accuracy on dataset corrupted with fog.
+- `frost`: accuracy on dataset corrupted with frost.
+- `gaussian_noise`: accuracy on dataset corrupted with gaussian_noise.
+- `glass_blur`: accuracy on dataset corrupted with glass_blur.
+- `impulse_noise`: accuracy on dataset corrupted with impulse_noise.
+- `jpeg_compression`: accuracy on dataset corrupted with jpeg_compression.
+- `motion_blur`: accuracy on dataset corrupted with motion_blur.
+- `pixelate`: accuracy on dataset corrupted with pixelate.
+- `shot_noise`: accuracy on dataset corrupted with shot_noise.
+- `snow`: accuracy on dataset corrupted with snow.
+- `zoom_blur`: accuracy on dataset corrupted with zoom_blur.
+
