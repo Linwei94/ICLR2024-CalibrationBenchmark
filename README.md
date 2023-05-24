@@ -113,8 +113,8 @@ The meaning of each column is as follows, note that the robustness data is from 
 - `post_NLL`: the post-temperature-scaling NLL.
 - `pre_Brier`: the pre-temperature-scaling Brier.
 - `post_Brier`: the post-temperature-scaling Brier.
-- `pre_auc_cifar10c`: the pre-temperature-scaling AUC on CIFAR-10-C (corrupted with guassian noise).
-- `pre_auc_svhn`: the pre-temperature-scaling AUC on SVHN.
+- `auc_cifar10c`: the AUC on CIFAR-10-C (corrupted with guassian noise).
+- `auc_svhn`: the AUC on SVHN.
 - `fgsm_Linf_acc0_1`: fgsm attack with Linf norm and epsilon = 0.1.
 - `fgsm_Linf_acc0_5`: fgsm attack with Linf norm and epsilon = 0.5.
 - `fgsm_Linf_acc1_0`: fgsm attack with Linf norm and epsilon = 1.0.
