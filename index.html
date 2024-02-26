@@ -77,7 +77,7 @@
     <img style="width: 80%;" src="./resources/teaser.png" alt="Teaser figure."/>
     <br>
     <p style="width: 80%; TEXT-ALIGN: center">
-        Our MagicMix allows mixing of two different semantics to create a novel concept.
+        TL;DR: This research explore neural network calibration by analyzing 117,702 unique models. It explores calibration's generalizability, robustness, and architectural effects, providing a novel dataset for future studies.
     </p>
 
     <br><br>
@@ -85,13 +85,7 @@
 
     <h1>Abstract</h1>
     <p style="width: 80%;">
-        Have you ever imagined what a watermelon-alike lamp or a tiger-alike rabbit would look like? 
-        In this work, we attempt to answer these questions by exploring a new task called semantic mixing, aiming at mixing two different semantics to create a new concept (e.g., raccoon and coffee machine). 
-        Unlike style transfer where an image is stylized according to the reference style without changing the image content, semantic mixing blends two different concepts in a semantic manner to synthesize a novel concept while preserving the spatial layout and geometry. 
-        To this end, we present MagicMix, a simple yet effective solution based on pre-trained text-conditioned diffusion models. 
-        Motivated by the progressive property of diffusion models where layout/ shape emerges at early denoising steps while semantically meaningful details appear at later steps during the denoising process, our method first obtains a coarse layout (either by corrupting an image or denoising from a pure Gaussian noise given a text prompt), followed by switching the conditional prompt to the second concept for semantic mixing. 
-        Our method does not require any spatial mask or re-training, yet is able to synthesize novel objects (e.g., a watermelon-alike lamp) with high fidelity. 
-        With our method, we present our results over diverse downstream applications, including semantic style transfer, novel object synthesis, breed mixing, and concept removal, demonstrating the flexibility of our method.
+        Deep neural networks are increasingly utilized in various machine learning tasks. However, as these models grow in complexity, they often face calibration issues, despite enhanced prediction accuracy. Many studies have endeavored to improve calibration performance through the use of specific loss functions, data preprocessing and training frameworks. Yet, investigations into calibration properties have been somewhat overlooked. Our study leverages the Neural Architecture Search (NAS) search space, offering an exhaustive model architecture space for thorough calibration properties exploration. We specifically create a model calibration dataset. This dataset evaluates 90 bin-based and 12 additional calibration measurements across 117,702 unique neural networks within the widely employed NATS-Bench search space. Our analysis aims to answer several longstanding questions in the field, using our proposed dataset: (i) Can model calibration be generalized across different datasets? (ii) Can robustness be used as a calibration measurement? (iii) How reliable are calibration metrics? (iv) Does a post-hoc calibration method affect all models uniformly? (v) How does calibration interact with accuracy? (vi) What is the impact of bin size on calibration measurement? (vii) Which architectural designs are beneficial for calibration? Additionally, our study bridges an existing gap by exploring calibration within NAS. By providing this dataset, we enable further research into NAS calibration. As far as we are aware, our research represents the first large-scale investigation into calibration properties and the premier study of calibration issues within NAS.
     </p>
 
     <br><br>
