@@ -1,0 +1,238 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./resources/style.css" media="screen"/>
+
+<html lang="en">
+<head>
+  	<title>A Benchmark Study on Calibration</title>
+      <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/
+          if you update and want to force Facebook to re-scrape. -->
+  	<meta property="og:title" content="A Benchmark Study on Calibration." />
+  	<meta property="og:description" content="This research explore the property of calibration by analyzing 117,702 unique models and answering questions on calibration's generalizability, robustness and etc., providing a novel dataset for future studies." />
+    <!-- Twitter automatically scrapes this. Go to https://cards-dev.twitter.com/validator?
+        if you update and want to force Twitter to re-scrape. -->
+    <meta property="twitter:card"          content="summary" />
+    <meta property="twitter:title"         content="A Benchmark Study on Calibration." />
+    <meta property="twitter:description"   content="This research explore the property of calibration by analyzing 117,702 unique models and answering questions on calibration's generalizability, robustness and etc., providing a novel dataset for future studies." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div class="container">
+    <div class="title">
+        A Benchmark Study on Calibration
+    </div>
+
+    <br><br>
+
+    <div class="author">
+        <a href="https://www.taolinwei.com">Linwei Tao</a>
+    </div>
+    <div class="author">
+        Younan Zhu
+    </div>
+    <div class="author">
+        Haolan Guo
+    </div>
+    <div class="author">
+        <a href="http://minjingdong.info">Minjing Dong</a>
+    </div>
+    <div class="author">
+        <a href="http://changxu.xyz">Chang Xu</a>
+    </div>
+
+    <br><br>
+
+    <div class="affiliation"><sup>&nbsp;</sup>University of Sydney, City University of Hong Kong</div>
+
+    <br><br>
+
+    <div class="links"><a href="https://openreview.net/forum?id=GzNhzX9kVa">[Paper]</a><a href="https://github.com/Linwei94/calibration-study">[Dataset]</a></div>
+
+    <br><br>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 14px;">
+        TL;DR: This research explore the property of calibration by analyzing 117,702 unique models and answering questions on calibration's generalizability, robustness and etc., providing a novel dataset for future studies.
+    </p>
+
+    <hr>
+
+    <h1>Abstract</h1>
+    <p style="width: 80%;">
+        Deep neural networks are increasingly utilized in various machine learning tasks. However, as these models grow in complexity, they often face calibration issues, despite enhanced prediction accuracy. Many studies have endeavored to improve calibration performance through the use of specific loss functions, data preprocessing and training frameworks. Yet, investigations into calibration properties have been somewhat overlooked. Our study leverages the Neural Architecture Search (NAS) search space, offering an exhaustive model architecture space for thorough calibration properties exploration. We specifically create a model calibration dataset. This dataset evaluates 90 bin-based and 12 additional calibration measurements across 117,702 unique neural networks within the widely employed NATS-Bench search space. Our analysis aims to answer several longstanding questions in the field, using our proposed dataset: 
+        <br>
+        <br> &nbsp &nbsp(i) Can model calibration be generalized across different datasets? 
+        <br> &nbsp &nbsp(ii) Can robustness be used as a calibration measurement? 
+        <br> &nbsp &nbsp(iii) How reliable are calibration metrics? 
+        <br> &nbsp &nbsp(iv) Does a post-hoc calibration method affect all models uniformly? 
+        <br> &nbsp &nbsp(v) How does calibration interact with accuracy? 
+        <br> &nbsp &nbsp(vi) What is the impact of bin size on calibration measurement? 
+        <br> &nbsp &nbsp(vii) Which architectural designs are beneficial for calibration? <br>
+        <br>Additionally, our study bridges an existing gap by exploring calibration within NAS. By providing this dataset, we enable further research into NAS calibration. As far as we are aware, our research represents the first large-scale investigation into calibration properties and the premier study of calibration issues within NAS.
+    </p>
+
+    <br><br>
+    <hr>
+    <!-- section 1 -->
+    <h1>Can model calibration be generalized across different datasets?</h1>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px; font-style: italic;">
+        Calibration performance can be measured not only by the robustness accuracy on the corruption dataset, but also by other robustness metrics only among models with high prediction accuracy
+    </p>
+    <img style="width: 80%;" src="./resources/q1.jpg" alt="Question 1"/>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 14px;">Kendall Ranking Correlation Matrix for the CIFAR-10, CIFAR-100, and the ImageNet16- 120 dataset with calibration metrics measured on TSS, filtered by top 100 accuracy.</p>
+    <br><br>
+    <hr>
+
+    <!-- section 2 -->
+    <h1>Can robustness be used as a calibration measurement?</h1>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px;font-style: italic;">
+        1. The calibration property of a certain architecture can not generalize well to different datasets. 
+    </p>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px;font-style: italic;">
+        2. Including AuC on OoD datasets in robustness metrics may not reliably measure calibration performance for models of varying prediction performance.
+    </p>
+    <img style="width: 80%;" src="./resources/q2.jpg" alt="Question 2"/>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 14px;">Kendall ranking correlation of various metrics against ECE different top-ranked model population.</p>
+    <br><br>
+    <hr>
+
+    <!-- section 3 -->
+    <h1>How reliable are calibration metrics?</h1>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px;font-style: italic;">
+        1. A consistent trend in the ranking of most calibration performance regardless of metric type.
+    </p>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px;font-style: italic;">
+        2. Equal Mass classwise ECE may not be a reliable metric for calibration measurement.
+    </p>
+    <img style="width: 80%;" src="./resources/q3.jpg" alt="Question 3"/>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 14px;">Kendall ranking correlation between diverse calibration metrics. The metrics are evaluated across the entire set of TSS models. The analysis spans each of the CIFAR-10(left) and ImageNet(right).</p>
+    <br><br>
+    <hr>
+
+    <!-- section 4 -->
+    <h1>Does a post-hoc calibration method affect all models uniformly?</h1>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px;font-style: italic;">
+        Well-calibrated models do not necessarily exhibit better calibration performance after post-hoc calibration techniques. 
+    </p>
+    <img style="width: 80%;" src="./resources/q4.jpg" alt="Question 4"/>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 14px;">Kendall Ranking Correlation Matrix of ECE using different bin size before and after
+        temperature scaling on CIFAR-10.</p>
+    <br><br>
+    <hr>
+
+    <!-- section 5 -->
+    <h1>How does calibration interact with accuracy?</h1>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px;font-style: italic;">
+        The positive correlation between accuracy and calibration exists only among architectures with good prediction performance, challenging the previously hinted trade-off.
+    </p>
+    <img style="width: 80%;" src="./resources/q5.jpg" alt="Question 5"/>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 14px;">Scatter plots depict the ECE versus Accuracy of model with accuracy larger than 90\% (left) and all TSS models (right) on CIFAR-10. The color-coded markers represent CIFAR-10-C AUC scores.</p>
+    <br><br>
+    <hr>
+
+    <!-- section 6 -->
+    <h1>What is the impact of bin size on calibration measurement?</h1>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px;font-style: italic;">
+        1. The bin size has a more substantial impact on post-ECE.
+    </p>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px;font-style: italic;">
+        2. It is recommended to assess post-hoc calibration performance across a range of bin sizes.
+    </p>
+    <img style="width: 80%;" src="./resources/q6.jpg" alt="Question 6"/>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 14px;">Explore the impact of bin size on calibration before and after temperature scaling.</p>
+    <br><br>
+    <hr>
+
+    <!-- section 7 -->
+    <h1>Which architectural designs are beneficial for calibration?</h1>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px;font-style: italic;">
+        1. The calibration performance may depend on both model size and dataset complexity.
+    </p>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px;font-style: italic;">
+        2. Less parameters do not necessarily lead to better calibration performance.
+    </p>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 20px;font-style: italic;">
+        3. Wider model can worsen calibration performance, especially when dealing with complex datasets.
+    </p>
+    
+    <img style="width: 80%;" src="./resources/q7.1.png" alt="Question 7.1"/>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 14px;">Explore the impact of model size on calibration performance.</p>
+    <br><br>
+    <img style="width: 80%;" src="./resources/q7.2.png" alt="Question 7.2"/>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 14px;">Calibration performance with cell kernel parameters. (Left) ECE distribution across different cell kernel parameters; (Middle) Scatter plot of all models on ECE and Accuracy; (Right): Scatter plot of all models on HCS and Accuracy. </p>
+    <br><br>
+    <img style="width: 80%;" src="./resources/q7.3.png" alt="Question 7.3"/>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 14px;">ECE measured on CIFAR-10, CIFAR-100, and ImageNet datasets before and after applying temperature scaling. Marker size represents model size progression from 8:8:8:8:8, 16:16:16:16:16, up to 64:64:64:64:64, where number indicate the number of kernels in a certain layer.</p>
+    <br><br>
+    <img style="width: 80%;" src="./resources/q7.4.png" alt="Question 7.4"/>
+    <p style="width: 80%; TEXT-ALIGN: center; font-size: 14px;">Top 20 HCS architectures out of the topology search space according to the ECE on CIFAR-10 dataset. </p>
+    <br><br>
+
+    
+    <br><br>
+    <hr>
+
+    <h1>Paper</h1>
+    <div class="paper-thumbnail">
+        <a href="https://openreview.net/forum?id=GzNhzX9kVa">
+            <img class="layered-paper-big" width="100%" src="./resources/paper.jpg" alt="Paper thumbnail"/>
+        </a>
+    </div>
+    <div class="paper-info">
+        <h3>A Benchmark Study on Calibration</h3>
+        <p>Linwei Tao, Younan Zhu, Haolan Guo, Minjing Dong, Chang Xu</p>
+        <p>ICLR 2024</p>
+        <pre><code>@misc{tao2023benchmark,
+      title={A Benchmark Study on Calibration}, 
+      author={Linwei Tao and Younan Zhu and Haolan Guo and Minjing Dong and Chang Xu},
+      year={2023},
+      eprint={2308.11838},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}</code></pre>
+    </div>
+
+    <br><br>
+    <hr>
+
+    <h1>Acknowledgement</h1>
+    <p style="width: 80%;">
+        This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful project</a>, and inherits the modifications made by <a href="https://github.com/jasonyzhang/webpage-template">Jason Zhang</a> and <a href="https://github.com/elliottwu/webpage-template">Elliott Wu</a>.
+    </p>
+
+    <br><br>
+</div>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+</script>
+
+</body>
+
+</html>
