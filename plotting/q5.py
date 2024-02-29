@@ -18,8 +18,7 @@ for idx in df.index:
     # print(edge_1)
 df["edge1"] = edge_1
 
-# # Calculate the average pre AUC for CIFAR10-C and SVHN
-# df["average_pre_auc"] = (df["pre_auc_cifar10c"] + df["pre_auc_svhn"]) / 2
+
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -44,7 +43,7 @@ sns.scatterplot(x="pre_ECE_15", y="acc", hue="auc_cifar10c", data=df_high_acc, a
 ax[0].set_xlabel("ECE(%)", fontsize=fontsize)
 ax[0].set_ylabel("Accuracy(%)", fontsize=fontsize)
 ax[0].legend(title="CIFAR-10-C AUC", title_fontsize=legend_title_fontsize)
-ax[0].set_yticks(np.arange(0.9, 0.945, 0.01))  # 添加这行代码
+ax[0].set_yticks(np.arange(0.9, 0.945, 0.01))
 
 # Scatter plot with all points
 scatter_plot = sns.scatterplot(x="pre_ECE_15", y="acc", hue="auc_cifar10c", data=df_all, ax=ax[1], linewidth=0, palette=red_map)
