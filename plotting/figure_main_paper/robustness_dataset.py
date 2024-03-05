@@ -61,7 +61,8 @@ class RobustnessDataset:
         """
         
         self.path = path
-        with open("meta.json") as f:
+        print(os.getcwd())
+        with open("./figure_main_paper/meta.json") as f:
             self.meta = json.load(f)
             self.map_str_to_id = {m["nb201-string"]:k for k,m in self.meta["ids"].items()}
             self.non_isomorph_ids = [i for i, d in self.meta["ids"].items() if d["isomorph"]==i]
