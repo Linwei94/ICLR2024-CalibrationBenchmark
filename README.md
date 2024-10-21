@@ -163,3 +163,13 @@ The meaning of each column is as follows, note that the robustness data is from 
 - `snow`: accuracy on dataset corrupted with snow.
 - `zoom_blur`: accuracy on dataset corrupted with zoom_blur.
 
+## Citation
+If you find this repo useful, please cite our paper.
+```
+@article{tao2023benchmark,
+  title={A benchmark study on calibration},
+  author={Tao, Linwei and Zhu, Younan and Guo, Haolan and Dong, Minjing and Xu, Chang},
+  journal={arXiv preprint arXiv:2308.11838},
+  year={2023}
+}
+```
